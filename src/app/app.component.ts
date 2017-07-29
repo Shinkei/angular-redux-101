@@ -3,6 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
 
+import { INCREMENT, DECREMENT, RESET, INCREMENT10, DECREMENT10 } from './counter.reducer'; // import the actions from the reducer to be used here to dispatch
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,4 +20,25 @@ export class AppComponent {
       return state.counter;
     });
   }
+
+  increment(){
+    this.store.dispatch({type: INCREMENT});
+  }
+
+  decrement(){
+    this.store.dispatch({type: DECREMENT});
+  }
+
+  reset(){
+    this.store.dispatch({type: RESET});
+  }
+
+  increment10(){
+    this.store.dispatch({type: INCREMENT10});
+  }
+
+  decrement10(){
+    this.store.dispatch({type: DECREMENT10});
+  }
+
 }
